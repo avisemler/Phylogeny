@@ -94,5 +94,5 @@ class Phylogeny:
 
 import random
 
-tree = Phylogeny(lambda x, y: y - x)
+tree = Phylogeny(lambda x, y: abs(y - x))
 tree.construct([625, 390, 400, 410, 605])
