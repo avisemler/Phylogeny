@@ -19,5 +19,4 @@ Node
 
 ## Todo
 
-- Better commenting
-- Distance function for genetic sequences
+- Non-recursive implementation of Levenshtein distance as a string distance metric
