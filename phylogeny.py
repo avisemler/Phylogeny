@@ -3,15 +3,22 @@ from pandas import *
 import numpy as np
 
 class Clade:
+    """
+    A clade is analogous to a node in a tree: its children represent
+    objects for which it is a common ancestor.
+    """
     def __init__(self, data = None, name = None):
+        #The data stored at the current node
         self.data = data
         self.name = None
+        
         self.children = []
 
     def add_child(self, clade):
         self.children.append(clade)
 
     def string(self, indent):
+        #recursion to print children at increasing indent levels
         result = str(self.data)
         for c in self.children:
             result += "\n" + " "* indent + "|" + "_ " + c.string(indent + 4)
@@ -21,12 +28,15 @@ class Clade:
         return self.string(indent = 1).replace("None", "Node")
 
 class Phylogeny:
-    
+    """
+    Constructs a tree of clades.
+    """
     def __init__(self, distance_function):
         #function that returns a number indicating how different the
         #data on two nodes are
         self.distance_function = distance_function
-
+        
+        #The root node
         self.tree = Clade()
 
     def construct(self, data_list):
@@ -37,6 +47,8 @@ class Phylogeny:
             tree = Clade(d)
             clades.append(tree)
         size = len(clades)
+        
+        #The algorithm is to match up the closest two clades at every iteration.
         while size > 3:
             size = len(clades)
 
