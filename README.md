@@ -19,4 +19,4 @@ Node
 
 ## Todo
 
-- Non-recursive implementation of Levenshtein distance as a string distance metric
+- Visualisation with variable distance between splits
