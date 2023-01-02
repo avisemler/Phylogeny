@@ -17,6 +17,8 @@ Node
      |_ 605
 ```
 
+![](https://raw.githubusercontent.com/avisemler/Phylogeny/main/integers_tree.png)
+
 ## Todo
 
-- Visualisation with variable distance between splits
+- Add distances to the visualisation
